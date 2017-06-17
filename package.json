@@ -1,6 +1,6 @@
 {
-  "name": "highlight.js-async",
-  "version": "1.0.0",
+  "name": "highlight.js-async-webpack",
+  "version": "1.0.1",
   "description": "webpack async for highlight.js",
   "main": "src/index.js",
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CHENXCHEN/highlight.js-async.git"
+    "url": "git+https://github.com/CHENXCHEN/highlight.js-async-webpack.git"
   },
   "bugs": {
-    "url": "https://github.com/CHENXCHEN/highlight.js-async/issues"
+    "url": "https://github.com/CHENXCHEN/highlight.js-async-webpack/issues"
   },
-  "homepage": "https://github.com/CHENXCHEN/highlight.js-async",
+  "homepage": "https://github.com/CHENXCHEN/highlight.js-async-webpack",
   "keywords": [
     "highlight.js",
     "async",
@@ -21,10 +21,9 @@
   ],
   "author": "CHENXCHEN",
   "license": "MIT",
-  "dependencies": {
-    "highlight.js": "^9.12.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "highlight.js": "^9.12.0",
     "path": "^0.12.7"
   }
 }
