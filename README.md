@@ -5,7 +5,7 @@ async language request from highlight.js
 npm install highlight.js-async-webpack
 ```
 ## Usage
-```
+```javascript
 import hljs from 'highlight.js-async-webpack'
 hljs.hljsBlock(dom, lang);
 ```
