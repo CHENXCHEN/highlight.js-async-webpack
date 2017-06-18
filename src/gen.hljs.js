@@ -4,7 +4,7 @@
  * @Email:  chenhuachaoxyz@gmail.com
  * @Filename: test.js
  * @Last modified by:   CHC
- * @Last modified time: 2017-06-17T21:27:55+08:00
+ * @Last modified time: 2017-06-18T21:15:25+08:00
  * @License: MIT
  * @Copyright: 2017
  */
@@ -35,10 +35,11 @@ fs.readdir(path.resolve(__dirname, '../node_modules/highlight.js/lib/languages')
     for (var i = 0; i < files.length; i++) {
         var _lang = files[i].substring(0, files[i].length - 3);
         var __lang = validFilename(_lang);
-        _str_code += 'hljs.hljs_' + __lang + ' = function (dom) {\n';
+        _str_code += 'hljs.hljs_' + __lang + ' = function (dom, callback) {\n';
         _str_code += '    require.ensure([], function() {\n';
         _str_code += "        hljs.registerLanguage('" + _lang + "', require('highlight.js/lib/languages/" + files[i] + "'));\n"
         _str_code += '        hljs.highlightBlock(dom);\n';
+        _str_code += '        if (callback) callback();\n';
         _str_code += "    }, 'hljs." + __lang + "');\n"
         _str_code += '}\n\n';
     }

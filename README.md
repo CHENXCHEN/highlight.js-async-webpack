@@ -7,5 +7,33 @@ npm install highlight.js-async-webpack
 ## Usage
 ```javascript
 import hljs from 'highlight.js-async-webpack'
-hljs.hljsBlock(dom, lang);
+hljs.hljsBlock(dom, lang, function(){
+// do something...
+});
+
 ```
+### Example
+```javascript
+function highLightCodex(str, callback) {
+    var dom = document.createElement('div');
+    dom.innerHTML = str;
+    var pre_code = dom.querySelectorAll('pre.hljs > code');
+    if (pre_code) {
+        var cnt = 0;
+        var deal = 0;
+        for (var i = 0; i < pre_code.length; i++) {
+            if (pre_code[i].className.length > 0) {
+                cnt = cnt + 1;
+                hljs.hljsBlock(pre_code[i], pre_code[i].className, function() {
+                    deal = deal + 1;
+                    if (deal == cnt) {
+                        callback(dom.innerHTML);
+                    }
+                });
+            }
+        }
+    }
+}
+```
+## Version
++ **1.0.2** Add callback function
