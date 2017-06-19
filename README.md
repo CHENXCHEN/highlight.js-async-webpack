@@ -37,3 +37,4 @@ function highLightCodex(str, callback) {
 ```
 ## Version
 + **1.0.2** Add callback function
++ **1.0.3** Add async files list(file.lang.hljs.js).

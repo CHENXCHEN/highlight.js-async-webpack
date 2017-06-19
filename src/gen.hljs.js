@@ -4,7 +4,7 @@
  * @Email:  chenhuachaoxyz@gmail.com
  * @Filename: test.js
  * @Last modified by:   CHC
- * @Last modified time: 2017-06-18T21:15:25+08:00
+ * @Last modified time: 2017-06-19T17:08:00+08:00
  * @License: MIT
  * @Copyright: 2017
  */
@@ -31,6 +31,7 @@ function validFilename(str) {
 // console.log(tmp(hljs));
 // console.log(hljs);
 fs.readdir(path.resolve(__dirname, '../node_modules/highlight.js/lib/languages'), function (err, files) {
+    var _files = [];
     var _str_code = "var hljs = require('highlight.js/lib/highlight.js');\n";
     for (var i = 0; i < files.length; i++) {
         var _lang = files[i].substring(0, files[i].length - 3);
@@ -42,9 +43,19 @@ fs.readdir(path.resolve(__dirname, '../node_modules/highlight.js/lib/languages')
         _str_code += '        if (callback) callback();\n';
         _str_code += "    }, 'hljs." + __lang + "');\n"
         _str_code += '}\n\n';
+        // _files['hljs.' + __lang] = _lang;
+        _files.push('hljs.' + __lang)
     }
     _str_code += 'export default hljs';
     fs.writeFile(path.resolve(__dirname, './async.hljs.js'), _str_code, function() {
+
+    })
+    var _str_files = 'module.exports = [\n';
+    for (var i = 0; i < _files.length; i++) {
+        _str_files += "'" + _files[i] + "', ";
+    }
+    _str_files += ']';
+    fs.writeFile(path.resolve(__dirname, './file.lang.hljs.js'), _str_files, function() {
 
     })
     var _ = {};
